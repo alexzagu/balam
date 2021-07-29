@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Definitions
 
-struct MenuItem {
+struct MenuItem: Equatable {
 
     let id: UUID
     let title: String
@@ -21,7 +21,7 @@ struct MenuItem {
 
 }
 
-struct MenuCategory {
+struct MenuCategory: Equatable {
 
     let id: UUID
     let title: String
@@ -29,14 +29,14 @@ struct MenuCategory {
 
 }
 
-struct MenuFilter {
+struct MenuFilter: Equatable {
 
     let id: UUID
     let title: String
 
 }
 
-struct Menu {
+struct Menu: Equatable {
 
     let id: UUID
     let categories: [MenuCategory]

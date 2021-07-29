@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CartItem {
+struct CartItem: Equatable {
 
     let id: UUID
     let itemId: UUID
