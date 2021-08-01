@@ -12,10 +12,12 @@ struct DIContainer {
 
     let appState: Store<AppState>
     let appServices: AppServices
+    let appFormatters: AppFormatters
 
-    private init(appState: Store<AppState>, appServices: AppServices) {
+    init(appState: Store<AppState>, appServices: AppServices) {
         self.appState = appState
         self.appServices = appServices
+        self.appFormatters = .init()
     }
 
     init(appState: AppState, appServices: AppServices) {
@@ -23,3 +25,17 @@ struct DIContainer {
     }
 
 }
+
+// MARK: - Stub
+
+#if DEBUG
+
+extension DIContainer {
+
+    static var preview: Self {
+        .init(appState: .preview, appServices: .stub)
+    }
+
+}
+
+#endif

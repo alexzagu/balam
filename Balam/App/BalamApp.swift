@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct BalamApp: App {
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView(viewModel: .init(container: container))
         }
     }
+
+    private var container: DIContainer {
+        AppEnvironment.bootstrap().container
+    }
+
 }

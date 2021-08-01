@@ -22,3 +22,15 @@ extension ImagesService: ImagesServiceProtocol {
     func load(image: LoadableSubject<Data>, from url: URL?) {}
 
 }
+
+// MARK: - Stub
+
+#if DEBUG
+
+struct ImagesServiceStub: ImagesServiceProtocol {
+
+    func load(image: LoadableSubject<Data>, from url: URL?) {}
+
+}
+
+#endif

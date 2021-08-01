@@ -26,10 +26,24 @@ extension MenuService: MenuServiceProtocol {
 
     func load(promotions: LoadableSubject<[URL]>) {
         promotions.wrappedValue = .loaded(value: [
-            .init(string: "")!,
-            .init(string: "")!,
-            .init(string: "")!
+            .init(string: "www.balam.com/img/placeholder_image.png")!,
+            .init(string: "www.balam.com/img/placeholder_image.png")!,
+            .init(string: "www.balam.com/img/placeholder_image.png")!
         ])
     }
 
 }
+
+// MARK: - Stub
+
+#if DEBUG
+
+struct MenuServiceStub: MenuServiceProtocol {
+
+    func load(menu: LoadableSubject<Menu>) {}
+
+    func load(promotions: LoadableSubject<[URL]>) {}
+
+}
+
+#endif

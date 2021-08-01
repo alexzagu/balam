@@ -16,18 +16,21 @@ struct AppEnvironment {
 extension AppEnvironment {
 
     static func bootstrap() -> AppEnvironment {
-        let appState: AppState = .init()
-        let appServices: AppServices = bootstrapServices()
+        let appState: Store<AppState> = .init(.init())
+        let appServices: AppServices = bootstrapServices(with: appState)
         let container: DIContainer = .init(appState: appState, appServices: appServices)
 
         return .init(container: container)
     }
 
-    private static func bootstrapServices() -> AppServices {
+    private static func bootstrapServices(with appState: Store<AppState>) -> AppServices {
         let menuService: MenuService = .init()
         let imagesService: ImagesService = .init()
+        let cartService: CartService = .init(appState: appState)
 
-        return .init(menuService: menuService, imagesService: imagesService)
+        return .init(menuService: menuService,
+                     imagesService: imagesService,
+                     cartService: cartService)
     }
 
 }

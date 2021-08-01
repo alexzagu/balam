@@ -39,16 +39,22 @@ struct MenuFilter: Equatable {
 struct Menu: Equatable {
 
     let id: UUID
+    let title: String
     let categories: [MenuCategory]
     let filters: [MenuFilter]
 
 }
+
+// MARK: - Identifiable
+
+extension MenuItem: Identifiable {}
 
 // MARK: - Mocked Data
 
 extension Menu {
 
     static let mockedData: Self = .init(id: .init(),
+                                        title: "Chez Vego",
                                         categories: MenuCategory.mockedData,
                                         filters: MenuFilter.mockedData)
 
@@ -71,28 +77,32 @@ fileprivate extension MenuItem {
               title: "Mexican",
               description: "Your typical crazy Mexican combo!",
               details: "190 grams, 40 cm",
-              imageURL: .init(string: "www.balam.com/img/pizza/mexican.png"),
+              //imageURL: .init(string: "www.balam.com/img/pizza/mexican.png"),
+              imageURL: nil,
               price: 42,
               filteredBy: [.mockedSpicyFilterId]),
         .init(id: .init(),
               title: "4 Cheese",
               description: "Delicious 4 vegan cheese combination, including our signature blue cheese.",
               details: "230 grams, 40 cm",
-              imageURL: .init(string: "www.balam.com/img/pizza/4_cheese.png"),
+              //imageURL: .init(string: "www.balam.com/img/pizza/4_cheese.png"),
+              imageURL: nil,
               price: 50,
               filteredBy: [.mockedVeganFilterId]),
         .init(id: .init(),
               title: "Napolitana",
               description: "Served with perky tomatoes and vivid greens.",
               details: "200 grams, 40 cm",
-              imageURL: .init(string: "www.balam.com/img/pizza/napolitana.png"),
+              //imageURL: .init(string: "www.balam.com/img/pizza/napolitana.png"),
+              imageURL: nil,
               price: 39,
               filteredBy: [.mockedSeasonalFilterId]),
         .init(id: .init(),
               title: "Maritime",
               description: "Our sea-inspired pizza, served with tofu-based fish and olives.",
               details: "215 grams, 40 cm",
-              imageURL: .init(string: "www.balam.com/img/pizza/maritime.png"),
+              //imageURL: .init(string: "www.balam.com/img/pizza/maritime.png"),
+              imageURL: nil,
               price: 45,
               filteredBy: [])
     ]
@@ -102,28 +112,32 @@ fileprivate extension MenuItem {
               title: "California",
               description: "Fresh and ready to go!",
               details: "300 grams, 10 pieces",
-              imageURL: .init(string: "www.balam.com/img/sushi/california.png"),
+              //imageURL: .init(string: "www.balam.com/img/sushi/california.png"),
+              imageURL: nil,
               price: 55,
               filteredBy: []),
         .init(id: .init(),
               title: "Jalapeño",
               description: "Our jalapeño-poppers based sushi, ready to melt your mind!",
               details: "320 grams, 10 pieces",
-              imageURL: .init(string: "www.balam.com/img/sushi/jalapeno.png"),
+              //imageURL: .init(string: "www.balam.com/img/sushi/jalapeno.png"),
+              imageURL: nil,
               price: 60,
               filteredBy: [.mockedSpicyFilterId]),
         .init(id: .init(),
               title: "Mango",
               description: "You'll go full tropical with these mango-infused babies!",
               details: "315 grams, 10 pieces",
-              imageURL: .init(string: "www.balam.com/img/sushi/mango.png"),
+              //imageURL: .init(string: "www.balam.com/img/sushi/mango.png"),
+              imageURL: nil,
               price: 62,
               filteredBy: [.mockedSeasonalFilterId, .mockedVeganFilterId]),
         .init(id: .init(),
               title: "Tofunator",
               description: "Experience the full flavour of BBQ-marinated tofu.",
               details: "350 grams, 10 pieces",
-              imageURL: .init(string: "www.balam.com/img/sushi/tofu.png"),
+              //imageURL: .init(string: "www.balam.com/img/sushi/tofu.png"),
+              imageURL: nil,
               price: 50,
               filteredBy: [.mockedVeganFilterId])
     ]
@@ -133,28 +147,32 @@ fileprivate extension MenuItem {
               title: "Belgian Beer",
               description: "Traditionally crafted Belgian beer.",
               details: "350 ml",
-              imageURL: .init(string: "www.balam.com/img/drinks/belgian_beer.png"),
+              //imageURL: .init(string: "www.balam.com/img/drinks/belgian_beer.png"),
+              imageURL: nil,
               price: 10,
               filteredBy: [.mockedVeganFilterId]),
         .init(id: .init(),
               title: "Kombucha",
               description: "The wellbeing elixir.",
               details: "350 ml",
-              imageURL: .init(string: "www.balam.com/img/drinks/kombucha.png"),
+              //imageURL: .init(string: "www.balam.com/img/drinks/kombucha.png"),
+              imageURL: nil,
               price: 6,
               filteredBy: []),
         .init(id: .init(),
               title: "Cider",
               description: "Get your apple game on with this sparkling drink!",
               details: "350 ml",
-              imageURL: .init(string: "www.balam.com/img/drinks/cider.png"),
+              //imageURL: .init(string: "www.balam.com/img/drinks/cider.png"),
+              imageURL: nil,
               price: 8,
               filteredBy: [.mockedSeasonalFilterId]),
         .init(id: .init(),
               title: "Spiced Cola",
               description: "Take it to the next level with this super tasty, spiced-up cola!",
               details: "350 ml",
-              imageURL: .init(string: "www.balam.com/img/drinks/spiced_cola.png"),
+              //imageURL: .init(string: "www.balam.com/img/drinks/spiced_cola.png"),
+              imageURL: nil,
               price: 12,
               filteredBy: [.mockedSpicyFilterId])
     ]
