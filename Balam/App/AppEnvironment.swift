@@ -24,7 +24,7 @@ extension AppEnvironment {
     }
 
     private static func bootstrapServices(with appState: Store<AppState>) -> AppServices {
-        let menuService: MenuService = .init()
+        let menuService: MenuService = .init(appState: appState)
         let imagesService: ImagesService = .init()
         let cartService: CartService = .init(appState: appState)
 

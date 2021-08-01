@@ -21,7 +21,7 @@ struct RootView: View {
     private var content: AnyView {
         switch viewModel.routing.rendering {
         case .menu: return AnyView(MenuView(viewModel: .init(container: viewModel.container)))
-        case .cart: return AnyView(CartView())
+        case .cart: return AnyView(CartView(viewModel: .init(container: viewModel.container)))
         }
     }
 
