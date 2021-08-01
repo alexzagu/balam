@@ -10,7 +10,6 @@ import SwiftUI
 struct MenuItemView: View {
 
     @ObservedObject private(set) var viewModel: ViewModel
-    @State private var height: CGFloat?
 
     var body: some View {
         VStack(spacing: 0) {
@@ -69,13 +68,6 @@ struct MenuItemView: View {
             .background(Color.white)
         }
         .cornerRadius(18)
-        .background(
-            GeometryReader {
-                Color.clear.preference(key: HeightKey.self, value: $0.size.height)
-            }
-        )
-        .onPreferenceChange(HeightKey.self) { height = $0 }
-        .frame(maxWidth: .infinity, maxHeight: height)
         .padding(.horizontal, 30)
         .shadow(radius: 1)
     }
@@ -94,38 +86,15 @@ struct MenuItemView: View {
 
 }
 
-// MARK: - Definitions
-
-extension MenuItemView {
-
-    struct HeightKey: PreferenceKey {
-
-        static var defaultValue: CGFloat? { nil }
-
-        static func reduce(value: inout CGFloat?, nextValue: () -> CGFloat?) {
-            value = value ?? nextValue()
-        }
-
-    }
-
-}
-
 // MARK: - Preview
 
 #if DEBUG
 
 struct MenuItemView_Previews: PreviewProvider {
 
-    private static let item: MenuItem = .init(id: .init(),
-                                       title: "Mexican",
-                                       description: "Your typical crazy Mexican combo!",
-                                       details: "190 grams, 40 cm",
-                                       imageURL: .none,
-                                       price: 43,
-                                       filteredBy: [])
-
     static var previews: some View {
-        MenuItemView(viewModel: .init(container: .preview, item: item))
+        MenuItemView(viewModel: .init(container: .preview,
+                                      item: Menu.mockedData.categories.first!.items.first!))
     }
 
 }

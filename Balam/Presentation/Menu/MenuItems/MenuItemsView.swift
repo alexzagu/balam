@@ -10,7 +10,6 @@ import SwiftUI
 struct MenuItemsView: View {
 
     @ObservedObject private(set) var viewModel: ViewModel
-    @State private var height: CGFloat?
 
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -20,13 +19,6 @@ struct MenuItemsView: View {
                 }
             }
             .background(Color.white)
-            .background(
-                GeometryReader {
-                    Color.clear.preference(key: HeightKey.self, value: $0.size.height)
-                }
-            )
-            .onPreferenceChange(HeightKey.self) { height = $0 }
-            .frame(maxWidth: .infinity, maxHeight: height)
 
             Spacer(minLength: 21)
         }
@@ -40,22 +32,6 @@ extension MenuItemsView: Identifiable {
 
     var id: String {
         viewModel.items.reduce(into: "") { $0 += $1.id.uuidString }
-    }
-
-}
-
-// MARK: - Definitions
-
-extension MenuItemsView {
-
-    struct HeightKey: PreferenceKey {
-
-        static var defaultValue: CGFloat? { nil }
-
-        static func reduce(value: inout CGFloat?, nextValue: () -> CGFloat?) {
-            value = value ?? nextValue()
-        }
-
     }
 
 }
