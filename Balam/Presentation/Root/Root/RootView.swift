@@ -18,6 +18,12 @@ struct RootView: View {
         }.edgesIgnoringSafeArea(.top)
     }
 
+}
+
+// MARK: - Content
+
+extension RootView {
+
     private var content: AnyView {
         switch viewModel.routing.rendering {
         case .menu: return AnyView(MenuView(viewModel: .init(container: viewModel.container)))

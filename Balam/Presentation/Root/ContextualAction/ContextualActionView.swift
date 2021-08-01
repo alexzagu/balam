@@ -11,9 +11,13 @@ struct ContextualActionView: View {
 
     @ObservedObject private(set) var viewModel: ViewModel
 
-    var body: some View {
-        content
-    }
+    var body: some View { content }
+
+}
+
+// MARK: - Content
+
+extension ContextualActionView {
 
     private var content: AnyView {
         switch viewModel.routing.rendering {
@@ -78,32 +82,6 @@ private extension ContextualActionView {
             case .cart: return "cart-icon"
             case .pay: return "pay-icon"
             }
-        }
-
-    }
-
-}
-
-// MARK: - ViewModel
-
-extension ContextualActionView {
-
-    class ViewModel: ObservableObject {
-
-        @Published var routing: RootView.Routing
-        @Published var badgeValue: Int = 0
-
-        let container: DIContainer
-
-        init(container: DIContainer) {
-            self.container = container
-            _routing = .init(initialValue: container.appState.value.routing.rootView)
-            container.appState.updates(for: \.routing.rootView).assign(to: &$routing)
-            container.appState.updates(for: \.userData.cart.count).assign(to: &$badgeValue)
-        }
-
-        func showCart() {
-            container.appState[\.routing.rootView] = .init(rendering: .cart)
         }
 
     }
