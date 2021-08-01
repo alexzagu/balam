@@ -86,7 +86,9 @@ let mockImageData: [String: Data] = [
     "www.balam.com/img/drinks/belgian_beer.png": UIImage(named: "belgian_beer")!.pngData()!,
     "www.balam.com/img/drinks/kombucha.png": UIImage(named: "kombucha")!.pngData()!,
     "www.balam.com/img/drinks/cider.png": UIImage(named: "cider")!.pngData()!,
-    "www.balam.com/img/drinks/spiced_cola.png": UIImage(named: "spiced_cola")!.pngData()!
+    "www.balam.com/img/drinks/spiced_cola.png": UIImage(named: "spiced_cola")!.pngData()!,
+    // Placeholder
+    "www.balam.com/img/placeholder_image.png": UIImage(named: "placeholder-image")!.pngData()!
 ]
 
 #endif

@@ -14,19 +14,21 @@ protocol ImagesRepositoryProtocol {
 
 }
 
-struct ImagesRepository {}
+struct ImagesRepository {
+
+    let networkHandler: NetworkHandlerProtocol
+
+}
 
 // MARK: - ImagesRepositoryProtocol
 
 extension ImagesRepository: ImagesRepositoryProtocol {
 
     func loadImage(from url: URL) -> AnyPublisher<Data, Error> {
-        guard let data = mockImageData(for: url) else {
-            return Fail<Data, Error>(error: ValueIsMissingError())
-                .eraseToAnyPublisher()
-        }
-
-        return Just<Data>.withErrorType(data, Error.self)
+        networkHandler.get(from: url)
+            .map(\.data)
+            .mapError { _ in ValueIsMissingError() }
+            .eraseToAnyPublisher()
     }
 
 }

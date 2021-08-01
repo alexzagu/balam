@@ -53,6 +53,13 @@
 		4860BB0C26B7366C006797B1 /* ImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB0B26B7366C006797B1 /* ImagesRepository.swift */; };
 		4860BB0E26B73679006797B1 /* MenuRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB0D26B73679006797B1 /* MenuRepository.swift */; };
 		4860BB1026B74DB4006797B1 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB0F26B74DB4006797B1 /* Combine.swift */; };
+		4860BB1326B759C3006797B1 /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB1226B759C3006797B1 /* NetworkConfiguration.swift */; };
+		4860BB1526B75A5B006797B1 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB1426B75A5B006797B1 /* NetworkDispatcher.swift */; };
+		4860BB1726B75ABC006797B1 /* NetworkHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB1626B75ABC006797B1 /* NetworkHandlerProtocol.swift */; };
+		4860BB1926B75C76006797B1 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB1826B75C76006797B1 /* NetworkHandler.swift */; };
+		4860BB1B26B75CDD006797B1 /* NetworkInterceptorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB1A26B75CDD006797B1 /* NetworkInterceptorManager.swift */; };
+		4860BB1D26B75D0C006797B1 /* RequestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB1C26B75D0C006797B1 /* RequestConfiguration.swift */; };
+		4860BB1F26B75D6A006797B1 /* URLSessionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB1E26B75D6A006797B1 /* URLSessionDispatcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +111,13 @@
 		4860BB0B26B7366C006797B1 /* ImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRepository.swift; sourceTree = "<group>"; };
 		4860BB0D26B73679006797B1 /* MenuRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRepository.swift; sourceTree = "<group>"; };
 		4860BB0F26B74DB4006797B1 /* Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine.swift; sourceTree = "<group>"; };
+		4860BB1226B759C3006797B1 /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
+		4860BB1426B75A5B006797B1 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
+		4860BB1626B75ABC006797B1 /* NetworkHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandlerProtocol.swift; sourceTree = "<group>"; };
+		4860BB1826B75C76006797B1 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		4860BB1A26B75CDD006797B1 /* NetworkInterceptorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterceptorManager.swift; sourceTree = "<group>"; };
+		4860BB1C26B75D0C006797B1 /* RequestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConfiguration.swift; sourceTree = "<group>"; };
+		4860BB1E26B75D6A006797B1 /* URLSessionDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDispatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +153,7 @@
 				4860BAB926B2B694006797B1 /* App */,
 				4860BAA626B1E574006797B1 /* Injected */,
 				4860BAA126B07A68006797B1 /* Models */,
+				4860BB1126B758C8006797B1 /* Networking */,
 				4860BABC26B2BB54006797B1 /* Presentation */,
 				4860BB0A26B735FB006797B1 /* Repositories */,
 				4860BABD26B2BBA0006797B1 /* Resources */,
@@ -387,6 +402,20 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		4860BB1126B758C8006797B1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4860BB1226B759C3006797B1 /* NetworkConfiguration.swift */,
+				4860BB1426B75A5B006797B1 /* NetworkDispatcher.swift */,
+				4860BB1826B75C76006797B1 /* NetworkHandler.swift */,
+				4860BB1626B75ABC006797B1 /* NetworkHandlerProtocol.swift */,
+				4860BB1A26B75CDD006797B1 /* NetworkInterceptorManager.swift */,
+				4860BB1C26B75D0C006797B1 /* RequestConfiguration.swift */,
+				4860BB1E26B75D6A006797B1 /* URLSessionDispatcher.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -457,6 +486,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4860BAF826B6B2EF006797B1 /* CartTotalView.swift in Sources */,
+				4860BB1526B75A5B006797B1 /* NetworkDispatcher.swift in Sources */,
+				4860BB1726B75ABC006797B1 /* NetworkHandlerProtocol.swift in Sources */,
 				4860BB1026B74DB4006797B1 /* Combine.swift in Sources */,
 				4860BAF326B699B9006797B1 /* CartItemView.swift in Sources */,
 				4860BAC726B315CA006797B1 /* RootViewModel.swift in Sources */,
@@ -477,10 +508,12 @@
 				4860BAC526B30A61006797B1 /* ContextualActionView.swift in Sources */,
 				4860BAB626B28824006797B1 /* MenuService.swift in Sources */,
 				4860BAD926B458CE006797B1 /* MenuItemViewModel.swift in Sources */,
+				4860BB1926B75C76006797B1 /* NetworkHandler.swift in Sources */,
 				4860BAE826B68438006797B1 /* MenuItemsViewModel.swift in Sources */,
 				4860BACC26B32588006797B1 /* PromotionsView.swift in Sources */,
 				4860BAF026B694B9006797B1 /* MenuViewModel.swift in Sources */,
 				4860BAAF26B1F153006797B1 /* Store.swift in Sources */,
+				4860BB1D26B75D0C006797B1 /* RequestConfiguration.swift in Sources */,
 				4860BADC26B45C4A006797B1 /* CartService.swift in Sources */,
 				4860BAF526B699D8006797B1 /* CartItemViewModel.swift in Sources */,
 				4860BADE26B488A5006797B1 /* AppFormatters.swift in Sources */,
@@ -497,9 +530,12 @@
 				4860BAE126B53FEB006797B1 /* PromotionsViewModel.swift in Sources */,
 				4860BAB826B28E61006797B1 /* AppServices.swift in Sources */,
 				4860BAB126B1F78A006797B1 /* DIContainer.swift in Sources */,
+				4860BB1B26B75CDD006797B1 /* NetworkInterceptorManager.swift in Sources */,
+				4860BB1326B759C3006797B1 /* NetworkConfiguration.swift in Sources */,
 				4860BB0926B73259006797B1 /* ImageViewModel.swift in Sources */,
 				4860BAAB26B1E725006797B1 /* Loadable.swift in Sources */,
 				4860BAFD26B6C753006797B1 /* CartItemsView.swift in Sources */,
+				4860BB1F26B75D6A006797B1 /* URLSessionDispatcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
