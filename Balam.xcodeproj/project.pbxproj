@@ -50,6 +50,9 @@
 		4860BB0226B6D56C006797B1 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB0126B6D56C006797B1 /* CartViewModel.swift */; };
 		4860BB0526B7303C006797B1 /* ContextualActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB0426B7303C006797B1 /* ContextualActionViewModel.swift */; };
 		4860BB0926B73259006797B1 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB0826B73259006797B1 /* ImageViewModel.swift */; };
+		4860BB0C26B7366C006797B1 /* ImagesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB0B26B7366C006797B1 /* ImagesRepository.swift */; };
+		4860BB0E26B73679006797B1 /* MenuRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB0D26B73679006797B1 /* MenuRepository.swift */; };
+		4860BB1026B74DB4006797B1 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4860BB0F26B74DB4006797B1 /* Combine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +101,9 @@
 		4860BB0126B6D56C006797B1 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		4860BB0426B7303C006797B1 /* ContextualActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextualActionViewModel.swift; sourceTree = "<group>"; };
 		4860BB0826B73259006797B1 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
+		4860BB0B26B7366C006797B1 /* ImagesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesRepository.swift; sourceTree = "<group>"; };
+		4860BB0D26B73679006797B1 /* MenuRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRepository.swift; sourceTree = "<group>"; };
+		4860BB0F26B74DB4006797B1 /* Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +140,7 @@
 				4860BAA626B1E574006797B1 /* Injected */,
 				4860BAA126B07A68006797B1 /* Models */,
 				4860BABC26B2BB54006797B1 /* Presentation */,
+				4860BB0A26B735FB006797B1 /* Repositories */,
 				4860BABD26B2BBA0006797B1 /* Resources */,
 				4860BAB226B281C5006797B1 /* Services */,
 				4860BAA926B1E6E2006797B1 /* Utilities */,
@@ -174,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				4860BAAC26B1E839006797B1 /* CancelBag.swift */,
+				4860BB0F26B74DB4006797B1 /* Combine.swift */,
 				4860BAAA26B1E725006797B1 /* Loadable.swift */,
 				4860BAAE26B1F153006797B1 /* Store.swift */,
 			);
@@ -370,6 +378,15 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		4860BB0A26B735FB006797B1 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				4860BB0B26B7366C006797B1 /* ImagesRepository.swift */,
+				4860BB0D26B73679006797B1 /* MenuRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -440,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4860BAF826B6B2EF006797B1 /* CartTotalView.swift in Sources */,
+				4860BB1026B74DB4006797B1 /* Combine.swift in Sources */,
 				4860BAF326B699B9006797B1 /* CartItemView.swift in Sources */,
 				4860BAC726B315CA006797B1 /* RootViewModel.swift in Sources */,
 				4860BB0226B6D56C006797B1 /* CartViewModel.swift in Sources */,
@@ -453,6 +471,7 @@
 				4860BB0526B7303C006797B1 /* ContextualActionViewModel.swift in Sources */,
 				4860BAE326B57690006797B1 /* ContextIndicatorView.swift in Sources */,
 				4860BAB426B2861E006797B1 /* ImagesService.swift in Sources */,
+				4860BB0E26B73679006797B1 /* MenuRepository.swift in Sources */,
 				4860BAA826B1E5A0006797B1 /* AppState.swift in Sources */,
 				4860BABF26B2C2CB006797B1 /* RootView.swift in Sources */,
 				4860BAC526B30A61006797B1 /* ContextualActionView.swift in Sources */,
@@ -474,6 +493,7 @@
 				4860BABB26B2B6AD006797B1 /* AppEnvironment.swift in Sources */,
 				4860BAED26B68F83006797B1 /* MenuCategoriesViewModel.swift in Sources */,
 				4860BAAD26B1E839006797B1 /* CancelBag.swift in Sources */,
+				4860BB0C26B7366C006797B1 /* ImagesRepository.swift in Sources */,
 				4860BAE126B53FEB006797B1 /* PromotionsViewModel.swift in Sources */,
 				4860BAB826B28E61006797B1 /* AppServices.swift in Sources */,
 				4860BAB126B1F78A006797B1 /* DIContainer.swift in Sources */,

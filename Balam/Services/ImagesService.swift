@@ -16,7 +16,11 @@ protocol ImagesServiceProtocol {
 
 }
 
-struct ImagesService {}
+struct ImagesService {
+
+    let imageRepo: ImagesRepositoryProtocol
+
+}
 
 // MARK: - ImagesServiceProtocol
 
@@ -28,12 +32,15 @@ extension ImagesService: ImagesServiceProtocol {
             return
         }
 
-        guard let data = mockImageData(for: url) else {
-            image.wrappedValue = .failed(ValueIsMissingError())
-            return
-        }
+        let cancelBag = CancelBag()
+        image.wrappedValue.setLoading(with: cancelBag)
 
-        image.wrappedValue = .loaded(value: data)
+        imageRepo
+            .loadImage(from: url)
+            .subscribe(on: DispatchQueue.global())
+            .receive(on: DispatchQueue.main)
+            .sinkToLoadable { image.wrappedValue = $0 }
+            .store(in: cancelBag)
     }
 
 }

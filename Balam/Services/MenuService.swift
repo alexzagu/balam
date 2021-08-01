@@ -18,6 +18,7 @@ protocol MenuServiceProtocol {
 struct MenuService {
 
     let appState: Store<AppState>
+    let menuRepo: MenuRepositoryProtocol
 
 }
 
@@ -33,9 +34,18 @@ extension MenuService: MenuServiceProtocol {
         default: break
         }
 
-        let mockedMenu: Loadable<Menu> = .loaded(value: .mockedData)
-        appState[\.userData.menu] = mockedMenu
-        menu.wrappedValue = mockedMenu
+        let cancelBag = CancelBag()
+        menu.wrappedValue.setLoading(with: cancelBag)
+
+        menuRepo
+            .loadMenu()
+            .subscribe(on: DispatchQueue.global())
+            .receive(on: DispatchQueue.main)
+            .sinkToLoadable {
+                appState[\.userData.menu] = $0
+                menu.wrappedValue = $0
+            }
+            .store(in: cancelBag)
     }
 
     func load(promotions: LoadableSubject<[URL]>) {
@@ -46,13 +56,18 @@ extension MenuService: MenuServiceProtocol {
         default: break
         }
 
-        let mockedPromotions: Loadable<[URL]> = .loaded(value: [
-            .init(string: "www.balam.com/img/placeholder_image.png")!,
-            .init(string: "www.balam.com/img/placeholder_image.png")!,
-            .init(string: "www.balam.com/img/placeholder_image.png")!
-        ])
-        appState[\.userData.promotions] = mockedPromotions
-        promotions.wrappedValue = mockedPromotions
+        let cancelBag = CancelBag()
+        promotions.wrappedValue.setLoading(with: cancelBag)
+
+        menuRepo
+            .loadPromotions()
+            .subscribe(on: DispatchQueue.global())
+            .receive(on: DispatchQueue.main)
+            .sinkToLoadable {
+                appState[\.userData.promotions] = $0
+                promotions.wrappedValue = $0
+            }
+            .store(in: cancelBag)
     }
 
     func fetch(item: LoadableSubject<MenuItem>, with id: UUID) {
