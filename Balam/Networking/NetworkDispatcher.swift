@@ -32,6 +32,13 @@ class NetworkDispatcherStub: NetworkDispatcherProtocol {
             return Fail<HTTPResponse, HTTPError>(error: error).eraseToAnyPublisher()
         }
 
+        if url.absoluteString == "www.balam.com/menu" {
+            let encoder = JSONEncoder()
+            let data = try! encoder.encode(Menu.mockedData)
+            let response = HTTPResponse(data: data, statusCode: 200, cookies: [])
+            return Just.withErrorType(response, HTTPError.self)
+        }
+
         guard let data = mockImageData(for: url) else {
             let placeholderData = mockImageData["www.balam.com/img/placeholder_image.png"]!
             let response = HTTPResponse(data: placeholderData, statusCode: 200, cookies: [])

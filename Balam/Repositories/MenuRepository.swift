@@ -15,14 +15,22 @@ protocol MenuRepositoryProtocol {
 
 }
 
-struct MenuRepository {}
+struct MenuRepository {
+
+    let networkHandler: NetworkHandlerProtocol
+
+}
 
 // MARK: - MenuRepositoryProtocol
 
 extension MenuRepository: MenuRepositoryProtocol {
 
     func loadMenu() -> AnyPublisher<Menu, Error> {
-        Just<Menu>.withErrorType(.mockedData, Error.self)
+        networkHandler.get(from: .init(string: "www.balam.com/menu")!)
+            .map(\.data)
+            .decode(type: Menu.self, decoder: JSONDecoder())
+            .mapError { _ in ValueIsMissingError() }
+            .eraseToAnyPublisher()
     }
 
     func loadPromotions() -> AnyPublisher<[URL], Error> {
