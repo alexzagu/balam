@@ -34,6 +34,8 @@ extension MenuRepository: MenuRepositoryProtocol {
     }
 
     func loadPromotions() -> AnyPublisher<[URL], Error> {
+        // TODO: fetch promotions from network layer once they are integreated in UI.
+
         let promotions: [URL] = [
             .init(string: "www.balam.com/img/placeholder_image.png")!,
             .init(string: "www.balam.com/img/placeholder_image.png")!,
