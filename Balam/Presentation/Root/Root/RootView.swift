@@ -15,7 +15,7 @@ struct RootView: View {
         ZStack {
             content
             contextualActionButton
-        }.edgesIgnoringSafeArea(.top)
+        }
     }
 
 }

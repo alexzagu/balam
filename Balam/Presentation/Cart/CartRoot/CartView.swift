@@ -14,7 +14,7 @@ struct CartView: View {
 
     var body: some View {
         VStack(spacing: 12) {
-            Spacer(minLength: 27)
+            Spacer(minLength: 6)
 
             HStack {
                 Button(action: viewModel.showMenu) {

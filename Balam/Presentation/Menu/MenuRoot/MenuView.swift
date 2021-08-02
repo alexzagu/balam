@@ -49,7 +49,6 @@ extension MenuView {
     private func loaded(_ menu: Menu) -> some View {
         MenuCategoriesView(viewModel: .init(container: viewModel.container,
                                             categories: menu.categories))
-            .padding(.top, 15)
     }
 
 }
